@@ -1,6 +1,6 @@
 package org.example.DataStructures;
 
-public class LinkedList<T> {
+public class LinkedList<T extends Number> {
     private Node<T> head;
     private int length;
     public LinkedList(){
@@ -30,6 +30,18 @@ public class LinkedList<T> {
             num++;
         }
         s.next=q;
+        p.next=s;
+        length++;
+        return true;
+    }
+    public boolean add(T obj){
+        Node<T> s = new Node<T>(obj,null);
+        Node<T> p=head;
+        Node<T> q=head.next;
+        while (q!=null) {
+            p = q;
+            q = q.next;
+        }
         p.next=s;
         length++;
         return true;
@@ -107,5 +119,18 @@ public class LinkedList<T> {
     public void clear(){
         head.next=null;
         length=0;
+    }
+    public void deleteNative(){
+        Node<T> p=head;
+        Node<T> q = (p != null) ? p.next : null;
+
+        while (q!=null){
+            if (q.data.doubleValue() < 0) {
+                p.next = q.next;
+            } else {
+                p = q;
+            }
+            q = p.next;
+        }
     }
 }

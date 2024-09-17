@@ -1,6 +1,6 @@
 package org.example.DataStructures;
 
-public class Node<T> {
+public class Node<T extends Number> {
     T data;
     Node<T> next;
     public Node(Node<T> n){
