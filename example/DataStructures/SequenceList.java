@@ -2,7 +2,7 @@ package org.example.DataStructures;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class SequenceList<T> {
+public class SequenceList<T extends Number> {
     final int DEFAULT_SIZE = 10;
     private T[] listArray;
     private int length;
@@ -39,6 +39,9 @@ public class SequenceList<T> {
         listArray[pos - 1] = x;
         length++;
         return true;
+    }
+    public boolean add(T x){
+        return add(x,length);
     }
     public T delete(int pos){
         if (isEmpty() || pos < 1 || pos > length + 1){
@@ -87,5 +90,27 @@ public class SequenceList<T> {
     }
     public T randomAccess(){
         return listArray[ThreadLocalRandom.current().nextInt(0,length + 1)];
+    }
+    public T[] sortA(){
+        T[] resultArray = (T[])new Object[length];
+        int negIndex = 0;
+        int posIndex;
+
+        for (int i = 0; i < length; i++) {
+            if (listArray[i].doubleValue() < 0) {
+                resultArray[negIndex] = listArray[i];
+                negIndex++;
+            }
+        }
+
+        posIndex = negIndex;
+        for (int i = 0; i < length; i++) {
+            if (listArray[i].doubleValue() >= 0) {
+                resultArray[posIndex] = listArray[i];
+                posIndex++;
+            }
+        }
+
+        return resultArray;
     }
 }

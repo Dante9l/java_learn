@@ -20,7 +20,7 @@ public class LinkedList<T extends Number> {
         if(pos<0||pos>length){
             return false;
         }
-        Node<T> s = new Node<T>(obj,null);
+        Node<T> target = new Node<T>(obj,null);
         int num=1;
         Node<T> node=head;
         Node<T> next=head.next;
@@ -29,22 +29,13 @@ public class LinkedList<T extends Number> {
             next = next.next;
             num++;
         }
-        s.next=next;
-        node.next=s;
+        target.next=next;
+        node.next=target;
         length++;
         return true;
     }
     public boolean add(T obj){
-        Node<T> s = new Node<T>(obj,null);
-        Node<T> node=head;
-        Node<T> next=head.next;
-        while (next!=null) {
-            node = next;
-            next = next.next;
-        }
-        node.next=s;
-        length++;
-        return true;
+        return add(obj,length);
     }
     public T delete(int pos){
         if(isEmpty()||pos<0||pos>=length) {
