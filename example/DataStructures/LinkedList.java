@@ -22,27 +22,27 @@ public class LinkedList<T extends Number> {
         }
         Node<T> s = new Node<T>(obj,null);
         int num=1;
-        Node<T> p=head;
-        Node<T> q=head.next;
+        Node<T> node=head;
+        Node<T> next=head.next;
         while (num<pos) {
-            p = q;
-            q = q.next;
+            node = next;
+            next = next.next;
             num++;
         }
-        s.next=q;
-        p.next=s;
+        s.next=next;
+        node.next=s;
         length++;
         return true;
     }
     public boolean add(T obj){
         Node<T> s = new Node<T>(obj,null);
-        Node<T> p=head;
-        Node<T> q=head.next;
-        while (q!=null) {
-            p = q;
-            q = q.next;
+        Node<T> node=head;
+        Node<T> next=head.next;
+        while (next!=null) {
+            node = next;
+            next = next.next;
         }
-        p.next=s;
+        node.next=s;
         length++;
         return true;
     }
@@ -51,28 +51,28 @@ public class LinkedList<T extends Number> {
             return null;
         }
         int num=1;
-        Node<T> p=head;
-        Node<T> q=head.next;
+        Node<T> node=head;
+        Node<T> next=head.next;
         while (num<pos) {
-            p = q;
-            q = q.next;
+            node = next;
+            next = next.next;
             num++;
         }
-        p.next=q.next;
+        node.next=next.next;
         length--;
-        return q.data;
+        return next.data;
     }
     public boolean modify(T obj,int pos){
         if (isEmpty()||pos<0||pos>=length){
             return false;
         }
         int num=1;
-        Node<T> p=head.next;
+        Node<T> next=head.next;
         while (num<pos) {
-            p = p.next;
+            next = next.next;
             num++;
         }
-        p.data=obj;
+        next.data=obj;
         return true;
     }
     public int find(T obj){
@@ -80,15 +80,15 @@ public class LinkedList<T extends Number> {
             return -1;
         }
         int num=1;
-        Node<T> p=head.next;
-        while (p!=null){
-            if (!p.data.equals(obj)){
-                p=p.next;
+        Node<T> next=head.next;
+        while (next!=null){
+            if (!next.data.equals(obj)){
+                next=next.next;
                 num++;
             }
             else break;
         }
-        if (p==null) return -1;
+        if (next==null) return -1;
         return num;
     }
     public T get(int pos){
@@ -96,22 +96,22 @@ public class LinkedList<T extends Number> {
             return null;
         }
         int num=1;
-        Node<T> p=head.next;
+        Node<T> next=head.next;
         while (num<pos) {
-            p = p.next;
+            next = next.next;
             num++;
         }
-        return p.data;
+        return next.data;
     }
     public void printAll(){
         if (isEmpty()){
             System.out.println("empty");
         }
         else {
-            Node<T> p = head.next;
-            while (p != null) {
-                System.out.print(p.data + " ");
-                p = p.next;
+            Node<T> next = head.next;
+            while (next != null) {
+                System.out.print(next.data + " ");
+                next = next.next;
             }
             System.out.println();
         }
@@ -121,16 +121,29 @@ public class LinkedList<T extends Number> {
         length=0;
     }
     public void deleteNative(){
-        Node<T> p=head;
-        Node<T> q = (p != null) ? p.next : null;
+        Node<T> node=head;
+        Node<T> next = (node != null) ? node.next : null;
 
-        while (q!=null){
-            if (q.data.doubleValue() < 0) {
-                p.next = q.next;
+        while (next!=null){
+            if (next.data.doubleValue() < 0) {
+                node.next = next.next;
             } else {
-                p = q;
+                node = next;
             }
-            q = p.next;
+            next = node.next;
+        }
+    }
+    public void deleteNumber(int x,int y){
+        Node<T> node=head;
+        Node<T> next = (node != null) ? node.next : null;
+
+        while (next!=null){
+            if (next.data.doubleValue() < y|| next.data.doubleValue() > y) {
+                node.next = next.next;
+            } else {
+                node = next;
+            }
+            next = node.next;
         }
     }
 }
