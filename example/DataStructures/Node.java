@@ -1,19 +1,13 @@
 package org.example.DataStructures;
 
-public class Node<T extends Number> {
-    T data;
-    Node<T> next;
-    public Node(Node<T> n){
-        next = n;
+public class Node<E extends Number> {
+    E data;
+    Node<E> next;
+    public Node(E data){ //constructor
+        this.data = data;
+        next = null;
     }
-    public Node(T obj, Node<T> n){
-        data = obj;
-        next = n;
-    }
-    public T getData(){
-        return data;
-    }
-    public Node<T> getNext(){
-        return next;
+    public Node(){
+        next = null;
     }
 }

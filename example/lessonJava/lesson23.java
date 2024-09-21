@@ -1,8 +1,8 @@
-package org.example;
+package org.example.lessonJava;
 
 import static java.lang.Math.round;
 
-public class findRowOrCol {
+public class lesson23 {
     public static void main(String[] args) {
         int[][] matrix = new int[4][4];
         for (int i = 0; i < matrix.length; i++) {

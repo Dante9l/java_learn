@@ -113,4 +113,25 @@ public class SequenceList<T extends Number> {
 
         return resultArray;
     }
+    public T[] deleteNagative(){
+        T[] resultArray = (T[])new Object[length];
+        int index = 0;
+        for (int i = 0; i < length; i++) {
+            if (listArray[i].doubleValue() >= 0)
+                resultArray[index] = listArray[i];
+            index++;
+        }
+        return resultArray;
+    }
+
+    public T[] selectNumber(int x, int y){
+        T[] resultArray = (T[])new Object[length];
+        int index = 0;
+        for (int i = 0; i < length; i++) {
+            if (listArray[i].doubleValue() >= x && listArray[i].doubleValue() <= y)
+                resultArray[index] = listArray[i];
+            index++;
+        }
+        return resultArray;
+    }
 }
