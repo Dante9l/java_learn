@@ -1,6 +1,6 @@
 package org.example.DataStructures;
 
-public class Node<E extends Number> {
+public class Node<E> {
     E data;
     Node<E> next;
     public Node(E data){ //constructor
