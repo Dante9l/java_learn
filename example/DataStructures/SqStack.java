@@ -1,4 +1,4 @@
-package org.example.DataStructures;
+package DataStructures;
 
 public class SqStack<E> {
     final int INITSIZE = 10;
