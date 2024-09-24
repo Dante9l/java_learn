@@ -1,4 +1,4 @@
-package org.example.lessonData.ch2;
+package lessonData.ch2;
 
 public class SequenceList<T> {
     final int defaultSize = 10; // 顺序表中一维数组的初始长度

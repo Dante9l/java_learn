@@ -1,4 +1,4 @@
-package org.example.lessonJava;
+package lessonJava;
 
 import java.util.Arrays;
 import java.util.Scanner;

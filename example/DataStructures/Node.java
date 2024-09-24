@@ -1,4 +1,4 @@
-package org.example.DataStructures;
+package DataStructures;
 
 public class Node<E> {
     E data;

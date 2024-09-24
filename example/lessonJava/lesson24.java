@@ -1,4 +1,4 @@
-package org.example.lessonJava;
+package lessonJava;
 
 public class lesson24 {
     public int fenZi;

@@ -1,4 +1,4 @@
-package org.example.DataStructures;
+package DataStructures;
 
 public class LinkStack<E> {
     private Node<E> head;

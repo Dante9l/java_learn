@@ -1,4 +1,4 @@
-package org.example.lessonJava;
+package lessonJava;
 
 import static java.lang.Math.round;
 

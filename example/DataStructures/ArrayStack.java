@@ -1,4 +1,4 @@
-package org.example.DataStructures;
+package DataStructures;
 
 public class ArrayStack<T> {
     T[] array;

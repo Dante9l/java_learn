@@ -1,4 +1,4 @@
-package org.example.DataStructures;
+package DataStructures;
 
 public class CSqQueue<E> {
     final int MAXSIZE = 100;

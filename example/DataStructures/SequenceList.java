@@ -1,4 +1,4 @@
-package org.example.DataStructures;
+package DataStructures;
 
 import java.util.concurrent.ThreadLocalRandom;
 

@@ -1,4 +1,4 @@
-package org.example.DataStructures;
+package DataStructures;
 
 public class LinkedList<T extends Number> {
     private Node<T> head;
