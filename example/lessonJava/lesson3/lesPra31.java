@@ -1,4 +1,4 @@
-package lessonJava;
+package lessonJava.lesson3;
 
 public class lesPra31 {
     String pinpai;

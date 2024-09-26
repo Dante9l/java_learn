@@ -7,6 +7,14 @@ public class LinkedList<T> {
         length = 0;
         head = new Node<T>((T) null);
     }
+    public LinkedList(Node head){
+        this.head = new Node<T>((T) null);
+        this.head.next = head;
+        while (head.next != null){
+            head = head.next;
+            length++;
+        }
+    }
     public Node<T> getHead() {
         return head;
     }
@@ -112,14 +120,14 @@ public class LinkedList<T> {
         }
         System.out.println("null");
     }
-    public static void middle(LinkedList list){
-        Node slow = list.head.next;
-        Node fast = list.head.next;
+    public static Node middle(Node head){
+        Node slow = head.next;
+        Node fast = head.next.next;
         while(fast.next != null && fast.next.next != null){
             slow = slow.next;
             fast = fast.next.next;
         }
-        System.out.println(slow.data);
+        return slow;
     }
     public static void reversePrint(Node node){
         if(node.next == null) {
@@ -129,21 +137,44 @@ public class LinkedList<T> {
         LinkedList.reversePrint(node.next);
         System.out.print("<-" + node.data);
     }
+    public static LinkedList deleteNumber(LinkedList<Integer> list, int value){
+        Node temp = list.head;
+        while (temp.next != null)
+            if(temp.next.data.equals(value))
+                temp.next = temp.next.next;
+             else
+                temp = temp.next;
+
+        return list;
+    }
+    public static LinkedList moveNegative(LinkedList<Integer> list){
+        Node pre = list.head;
+        Node cur = list.head.next;
+        while (cur.next != null){
+            if((int)cur.data < 0){
+                pre.next = cur.next;
+                cur.next = list.head.next;
+                list.head.next = cur;
+                cur = pre.next;
+            } else {
+                pre = cur;
+                cur = cur.next;
+            }
+        }
+        return list;
+    }
 
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<Integer>();
         list.add(20,1);
         list.add(21,2);
-        list.add(22,3);
-        list.add(23,4);
+        list.add(-2,3);
+        list.add(-25,4);
         list.add(24,5);
-        list.print();
-        list.remove(3);
-        list.print();
-        list.modify(55,3);
-        list.print();
-        System.out.println(list.find(55));
-        System.out.println(list.value(3));
-        LinkedList.reversePrint(list.head);
+        list.add(-5,6);
+        list.add(23,7);
+        list.add(23,8);
+        LinkedList list2 = LinkedList.moveNegative(list);
+        list2.add(105,1);
     }
 }

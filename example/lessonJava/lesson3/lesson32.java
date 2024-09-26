@@ -1,4 +1,4 @@
-package lessonJava;
+package lessonJava.lesson3;
 
 public class lesson32 {
     final int SLOW = 1;
@@ -47,6 +47,14 @@ public class lesson32 {
     public String toString() {
         if (on){
             return "speed=" + speed + ", on=" + on + ", radius=" + radius + ", color=" + color;
-        }else return "radius=" + radius + ", color=" + color;
+        }else return "fan is off"+"radius=" + radius + ", color=" + color;
+    }
+
+    public static void main(String[] args) {
+        lesson32 car = new lesson32();
+        System.out.println(car.toString());
+        car.setSpeed(100);
+        car.setOn(true);
+        System.out.println(car.toString());
     }
 }

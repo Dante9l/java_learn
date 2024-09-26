@@ -32,7 +32,7 @@ public class lesson24 {
         return result.yuefen();
     }
     public lesson24 yuefen(){
-        int gcd = gcd(fenZi, fenMu);
+        int gcd = lesson24.gcd(fenZi, fenMu);
         fenZi /= gcd;
         fenMu /= gcd;
         return this;

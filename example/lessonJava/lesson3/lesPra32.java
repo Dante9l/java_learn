@@ -1,4 +1,4 @@
-package lessonJava;
+package lessonJava.lesson3;
 
 public class lesPra32 extends lesPra31{
     String pinpai;
