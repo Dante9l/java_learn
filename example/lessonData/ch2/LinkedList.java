@@ -163,6 +163,14 @@ public class LinkedList<T> {
         }
         return list;
     }
+    public static LinkedList select(LinkedList<Integer> a ,LinkedList<Integer> b){
+        Node temp = a.head;
+        Node temp2 = b.head;
+        while (temp.next != null){
+
+        }
+        return a;
+    }
 
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<Integer>();

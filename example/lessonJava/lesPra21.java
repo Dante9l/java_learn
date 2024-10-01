@@ -1,5 +1,6 @@
 package lessonJava;
 
+import java.awt.image.ImageProducer;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -26,6 +27,5 @@ public class lesPra21 {
         System.out.println("The largest number is " + max);
         System.out.println("The sum of the numbers is " + sum);
         System.out.println("The number of odd numbers is " + flag);
-
     }
 }
