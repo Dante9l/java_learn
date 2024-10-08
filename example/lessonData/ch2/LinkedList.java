@@ -150,7 +150,7 @@ public class LinkedList<T> {
     public static LinkedList moveNegative(LinkedList<Integer> list){
         Node pre = list.head;
         Node cur = list.head.next;
-        while (cur.next != null){
+        while (pre.next != null){
             if((int)cur.data < 0){
                 pre.next = cur.next;
                 cur.next = list.head.next;
@@ -163,7 +163,7 @@ public class LinkedList<T> {
         }
         return list;
     }
-    public static LinkedList select(LinkedList<Integer> a ,LinkedList<Integer> b){
+    public static LinkedList select(LinkedList<Integer> a,LinkedList<Integer> b){
         Node temp = a.head;
         Node temp2 = b.head;
         while (temp.next != null){
@@ -171,18 +171,64 @@ public class LinkedList<T> {
         }
         return a;
     }
+    public static Node contains(Node d, LinkedList t){
+        Node head = t.head.next;
+        while(head != null){
+            if (d.data.equals(head.data))
+                return null;
+            head = head.next;
+        }
+        return d;
+    }
+    public static LinkedList<Integer> diff(LinkedList<Integer> one, LinkedList<Integer> two){
+        LinkedList<Integer> diff = new LinkedList();
+        Node h = diff.head, tem = one.head.next;
+
+        while (tem != null){
+            if (LinkedList.contains(tem, two) != null) {
+                h.next = new Node(contains(tem, two).data);
+                h = h.next;
+            }
+            tem = tem.next;
+        }
+        return diff;
+    }
+    public static LinkedList merge(LinkedList<Integer> a, LinkedList<Integer> b){
+        Node curOne = a.head.next, curTwo = b.head.next;
+        LinkedList<Integer> target = new LinkedList<>();
+        Node cur = target.head;
+
+        while(curOne != null && curTwo != null){
+            if ((int)curOne.data < (int)curTwo.data){
+                cur.next = curOne;
+                curOne = curOne.next;
+            } else {
+                cur.next = curTwo;
+                curTwo = curTwo.next;
+            }
+            cur = cur.next;
+        }
+
+        if (curOne != null)
+            cur.next = curOne;
+        else
+            cur.next = curTwo;
+        return target;
+    }
 
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<Integer>();
-        list.add(20,1);
-        list.add(21,2);
-        list.add(-2,3);
-        list.add(-25,4);
-        list.add(24,5);
-        list.add(-5,6);
-        list.add(23,7);
-        list.add(23,8);
-        LinkedList list2 = LinkedList.moveNegative(list);
-        list2.add(105,1);
+        list.add(2,1);
+        list.add(3,2);
+        list.add(3,3);
+        list.add(5,4);
+        list.print();
+        LinkedList<Integer> list2 = new LinkedList<>();
+        list2.add(-1,1);
+        list2.add(2,2);
+        list2.add(3,3);
+        list2.add(8,4);
+        list2.print();
+        LinkedList.diff(list, list2).print();
     }
 }

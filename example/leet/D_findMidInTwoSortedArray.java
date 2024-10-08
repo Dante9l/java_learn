@@ -3,7 +3,7 @@ package leet;
 public class D_findMidInTwoSortedArray {
     public double findMedianSortedArrays_1(int[] nums1, int[] nums2) {
         int[] arr = new int[nums1.length + nums2.length];
-        merge(arr, nums1, nums2);
+        D_findMidInTwoSortedArray.merge(arr, nums1, nums2);
         return arr.length % 2 == 0 ?
                 (arr[arr.length/2] + arr[arr.length/2 - 1])/2.0 :
                 arr[arr.length / 2];
