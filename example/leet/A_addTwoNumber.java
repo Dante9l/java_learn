@@ -6,6 +6,7 @@ import java.util.Map;
 public class A_addTwoNumber {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
+
         for (int i = 0; i < nums.length; i++) {
             int another = target - nums[i];
             if (map.containsKey(another)) {
@@ -13,6 +14,6 @@ public class A_addTwoNumber {
             }
             map.put(nums[i], i);
         }
-        return null;  // 如果找不到满足条件的两个数，返回 null
+        return null;
     }
 }

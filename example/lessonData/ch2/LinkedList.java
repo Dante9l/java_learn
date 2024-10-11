@@ -211,10 +211,11 @@ public class LinkedList<T> {
 
         if (curOne != null)
             cur.next = curOne;
-        else
+        else if(curTwo != null)
             cur.next = curTwo;
         return target;
     }
+
 
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<Integer>();
