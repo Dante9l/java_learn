@@ -1,4 +1,4 @@
-package lessonData.Resource;
+package lessonData.ch2;
 
 
 import java.io.FileInputStream;

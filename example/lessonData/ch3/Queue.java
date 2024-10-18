@@ -6,22 +6,20 @@ public class Queue<E> {
     private int front, rear;
     public Queue() {
         data = (E[]) new Object[MAX_SIZE];
-        front = rear = -1;
+        front = rear = 0;
     }
     public boolean isEmpty() {
         return front == rear;
     }
     public void enqueue(E item) {
-        if((rear + 1) % MAX_SIZE == front)
+        if(rear == front)
             throw new IllegalArgumentException("Queue is full");
-        rear = (rear + 1) % MAX_SIZE;
-        data[rear] = item;
+        data[rear++] = item;
     }
     public E dequeue() {
         if(isEmpty())
             throw new IllegalArgumentException("Queue is empty");
-        front = (front + 1) % MAX_SIZE;
-        return data[front];
+        return data[++front];
     }
     public E peek() {
         if(isEmpty())

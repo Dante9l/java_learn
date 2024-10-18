@@ -10,7 +10,7 @@ public class Bus extends MotoVehicle{
     }
 
     @Override
-    public void CalcRent(int day) {
-        System.out.println("租赁费用为: " + (this.seatCount > 16 ? 1500 : 800) * day + "元");
+    public int calRent(int day) {
+        return (this.seatCount> 16 ? 1500 : 800) * day;
     }
 }

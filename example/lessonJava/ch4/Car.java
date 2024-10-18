@@ -4,16 +4,24 @@ public class Car extends MotoVehicle{
     private String type;
 
     @Override
-    public void CalcRent(int day) {
-        switch (this.type){
-            case "别克商务舱GL8" -> System.out.println("租车费用为：" + 600 * day + "元");
-            case "宝马550i" -> System.out.println("租车费用为：" + 500 * day + "元");
-            case "别克林荫大道" -> System.out.println("租车费用为：" + 300 * day + "元");
+    public int calRent(int day) {
+        switch (super.getBrand() + this.type){
+            case "别克商务舱GL8" -> {
+                return  600 * day;
+            }
+            case "宝马550i" -> {
+                return  500 * day;
+            }
+            case "别克林荫大道" -> {
+                return  300 * day;
+            }
         }
+        return 0;
     }
 
-    public Car(String type){
+    public Car(String brand, String type){
         this.type = type;
+        super.setBrand(brand);
     }
     public String getType(){
         return type;

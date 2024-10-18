@@ -1,8 +1,8 @@
 package lessonData.ch2;
 
 public class Node<E> {
-    E data;
-    Node<E> next;
+    public E data;
+    public Node<E> next;
     public Node(E data){ //constructor
         this.data = data;
         next = null;
