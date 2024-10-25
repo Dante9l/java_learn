@@ -8,6 +8,7 @@ public class Recursion {
         String b = "abc";
         String d = (a + b).intern();
         String c = "helloabc";
+        StringBuffer bf = new StringBuffer("454455");
     }
 }
 class Fibonacci{
@@ -16,4 +17,3 @@ class Fibonacci{
         else return fibonacci(n - 1) + fibonacci(n - 2);
     }
 }
-
